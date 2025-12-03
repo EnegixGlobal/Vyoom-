@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+
+/* Custom Animation */
+@layer utilities {
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeUp {
+    animation: fadeUp 1.2s ease-out both;
+  }
+}
+
+/* AUTO SLIDE ANIMATION */
+@keyframes scrollX {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.auto-slider {
+  display: flex;
+  width: calc(350px * 8); /* adjust based on image width */
+  animation: scrollX 22s linear infinite;
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(60px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
