@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import bg from "../assets/aboutpagebg.avif";
 import About1 from "../assets/about1.avif";
 import About2 from "../assets/about2.avif";
-
+import {useNavigate} from "react-router-dom";
 
 // Animation variant
 const fadeUp = {
@@ -17,9 +17,9 @@ const fadeUp = {
 };
 
 export default function About() {
+  const navigate = useNavigate()
   return (
     <div className="w-full bg-[#faf6f4]">
-
       {/* ===================== HERO ===================== */}
       <section className="relative h-screen w-full">
         <img
@@ -45,7 +45,6 @@ export default function About() {
 
       {/* ===================== HOW IT STARTED ===================== */}
       <section className="max-w-7xl mx-auto py-28 px-8 grid md:grid-cols-2 gap-16 items-center">
-        
         {/* Image */}
         <motion.img
           src={About1}
@@ -65,21 +64,26 @@ export default function About() {
           variants={fadeUp}
           className="space-y-6"
         >
-          <h2 className="text-3xl font-semibold tracking-tight">HOW IT STARTED</h2>
+          <h2 className="text-3xl font-semibold tracking-tight">
+            HOW IT STARTED
+          </h2>
           <p className="text-gray-700 leading-relaxed">
-            Founded with a vision to redefine architectural excellence, Vyoom began as a 
-            small team of passionate designers determined to bring fresh thinking to modern 
-            real estate. What started as a shared dream has now grown into a forward-thinking 
-            architectural practice known for its innovative approach, thoughtful aesthetics, 
-            and commitment to sustainability.
+            Founded with a vision to redefine architectural excellence, Vyoom
+            began as a small team of passionate designers determined to bring
+            fresh thinking to modern real estate. What started as a shared dream
+            has now grown into a forward-thinking architectural practice known
+            for its innovative approach, thoughtful aesthetics, and commitment
+            to sustainability.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            Every project begins with meticulous attention to detail, a deep understanding 
-            of client needs, and an unwavering dedication to quality.
+            Every project begins with meticulous attention to detail, a deep
+            understanding of client needs, and an unwavering dedication to
+            quality.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            Today, Vyoom continues to break boundaries, delivering spaces that are globally 
-            inspired yet rooted in purpose, elegance, and timeless design philosophy.
+            Today, Vyoom continues to break boundaries, delivering spaces that
+            are globally inspired yet rooted in purpose, elegance, and timeless
+            design philosophy.
           </p>
         </motion.div>
       </section>
@@ -127,7 +131,6 @@ export default function About() {
 
       {/* ===================== VALUES ===================== */}
       <section className="max-w-7xl mx-auto px-8 py-28">
-        
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -136,8 +139,8 @@ export default function About() {
         >
           <h2 className="text-3xl font-semibold mb-4">OUR VALUES</h2>
           <p className="text-gray-600 max-w-xl">
-            Pushing creative boundaries to explore new architectural possibilities 
-            and shape the future of modern design.
+            Pushing creative boundaries to explore new architectural
+            possibilities and shape the future of modern design.
           </p>
         </motion.div>
 
@@ -174,39 +177,34 @@ export default function About() {
       </section>
 
       <section className="w-full bg-white py-20 md:py-32">
-  <div className="max-w-7xl mx-auto px-6 md:px-12">
-    
-    <div className="bg-black text-white px-8 md:px-16 py-16 md:py-24 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="bg-black text-white px-8 md:px-16 py-16 md:py-24 relative overflow-hidden">
+            <h1 className="font-mona font-semibold text-4xl sm:text-5xl md:text-6xl leading-[1.15] tracking-tight max-w-3xl">
+              Let’s build your <br /> extraordinary vision
+            </h1>
 
-      <h1 className="font-mona font-semibold text-4xl sm:text-5xl md:text-6xl leading-[1.15] tracking-tight max-w-3xl">
-        Let’s build your <br /> extraordinary vision
-      </h1>
+            <p className="font-mona text-gray-300 text-lg md:text-xl leading-relaxed max-w-xl mt-8">
+              Turn your vision into reality with our expertise in architecture
+              and design. Connect with us today and take the first step toward
+              your dream space.
+            </p>
 
-      <p className="font-mona text-gray-300 text-lg md:text-xl leading-relaxed max-w-xl mt-8">
-        Turn your vision into reality with our expertise in architecture and design. 
-        Connect with us today and take the first step toward your dream space.
-      </p>
+            {/* MOBILE BUTTON INSIDE NORMAL FLOW */}
+            <div className="mt-10 md:hidden">
+              <button className="font-mona bg-white text-black px-8 py-4 rounded-full text-base shadow-sm hover:scale-[1.04] transition-all duration-300">
+                Start your project →
+              </button>
+            </div>
 
-      {/* MOBILE BUTTON INSIDE NORMAL FLOW */}
-      <div className="mt-10 md:hidden">
-        <button className="font-mona bg-white text-black px-8 py-4 rounded-full text-base shadow-sm hover:scale-[1.04] transition-all duration-300">
-          Start your project →
-        </button>
-      </div>
-
-      {/* DESKTOP BUTTON ABSOLUTE */}
-      <div className="hidden md:block absolute bottom-16 right-16">
-        <button className="font-mona bg-white text-black px-10 py-4 rounded-full text-lg shadow-sm hover:scale-[1.04] transition-all duration-300">
-          Start your project →
-        </button>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
+            {/* DESKTOP BUTTON ABSOLUTE */}
+            <div className="hidden md:block absolute bottom-16 right-16" onClick={() => navigate("/contact")}>
+              <button className="font-mona bg-white cursor-pointer text-black px-10 py-4 rounded-full text-lg shadow-sm hover:scale-[1.04] transition-all duration-300">
+                Start your project →
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

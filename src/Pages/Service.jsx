@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMapPin, FiCalendar, FiUser } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 // IMPORT ASSETS
 import bg from "../assets/ourservice.avif";
@@ -18,6 +19,8 @@ import project4 from "../assets/project4.jpeg";
 
 /* ------------------ PROJECT DETAIL MODAL ------------------ */
 const ProjectDetailModal = ({ project, isOpen, onClose }) => {
+  const navigate = useNavigate();
+
   if (!project) return null;
 
   return (
@@ -343,7 +346,7 @@ export default function Service() {
       </div>
 
       {/* DESKTOP BUTTON ABSOLUTE */}
-      <div className="hidden md:block absolute bottom-16 right-16">
+      <div className="hidden md:block absolute bottom-16 right-16" onClick={() => navigate("/contact")}>
         <button className="font-mona bg-white text-black px-10 py-4 rounded-full text-lg shadow-sm hover:scale-[1.04] transition-all duration-300">
           Start your project →
         </button>

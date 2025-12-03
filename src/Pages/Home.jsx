@@ -6,9 +6,9 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-
 import { Link } from "react-router-dom";
 
+import { useNavigate } from "react-router-dom";
 
 // ========================== IMPORT ASSETS ==========================
 // Background video
@@ -46,6 +46,8 @@ import reviewer4 from "../assets/client4.jpeg";
 const workImages = [work1, work2, work3, work4];
 
 export default function Home() {
+  const navigate = useNavigate();
+
   // ========================== SERVICES DATA ==========================
   const services = [
     {
@@ -248,132 +250,128 @@ export default function Home() {
 
       {/* ==========================Section 1. HERO SECTION ========================== */}
       <motion.section
-  className="
+        className="
     min-h-screen flex flex-col md:flex-row items-center 
     px-6 md:px-24 text-white justify-center md:justify-start gap-10 
     pt-[calc(80px+env(safe-area-inset-top))] md:pt-32 pb-20
   "
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true }}
-  variants={staggerContainer}
->
-  <motion.div
-    className="max-w-xl text-center md:text-left"
-    style={{ y: heroY }}
-    variants={sectionVariant}
-    transition={{ duration: 0.9 }}
-  >
-    <motion.p
-      className="text-sm md:text-lg mb-3 opacity-95"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-    >
-      ⭐⭐⭐⭐⭐ 100+ 5 Star Rating
-    </motion.p>
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+      >
+        <motion.div
+          className="max-w-xl text-center md:text-left"
+          style={{ y: heroY }}
+          variants={sectionVariant}
+          transition={{ duration: 0.9 }}
+        >
+          <motion.p
+            className="text-sm md:text-lg mb-3 opacity-95"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+          >
+            ⭐⭐⭐⭐⭐ 100+ 5 Star Rating
+          </motion.p>
 
-    <motion.h1
-      className="text-3xl md:text-5xl font-bold leading-tight mb-4"
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.15 }}
-    >
-      Your trusted partner for exceptional landscaping
-    </motion.h1>
+          <motion.h1
+            className="text-3xl md:text-5xl font-bold leading-tight mb-4"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+          >
+            Your trusted partner for exceptional landscaping
+          </motion.h1>
 
-    <motion.p
-      className="text-sm md:text-lg leading-relaxed mb-6 max-w-xl"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8, delay: 0.25 }}
-    >
-      We provide complete, reliable, and affordable landscaping solutions
-      across the USA — from design to maintenance.
-    </motion.p>
+          <motion.p
+            className="text-sm md:text-lg leading-relaxed mb-6 max-w-xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.25 }}
+          >
+            We provide complete, reliable, and affordable landscaping solutions
+            across the USA — from design to maintenance.
+          </motion.p>
 
-    <motion.button
-      whileHover={{ scale: 1.04 }}
-      whileTap={{ scale: 0.98 }}
-      className="bg-white text-black px-6 py-2 rounded-full text-base font-medium hover:bg-gray-200 transition"
-    >
-      Work with us →
-    </motion.button>
-  </motion.div>
-</motion.section>
+          <motion.button
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.98 }}
+            className="bg-white text-black px-6 py-2 rounded-full text-base font-medium hover:bg-gray-200 transition"
+          >
+            Work with us →
+          </motion.button>
+        </motion.div>
+      </motion.section>
 
+      {/* ========================== SECTION 2: INTRODUCTION ========================== */}
+      <motion.section
+        className="w-full bg-[#f7f3ef] py-20 px-6 md:px-24"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={sectionVariant}
+      >
+        <div className="flex flex-col md:flex-row justify-between items-center gap-12">
+          <motion.h2
+            className="text-4xl md:text-[88px] font-semibold leading-[1.1] text-black"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Your True Home <br />
+            <span className="inline-block mt-2 text-lg md:text-5xl opacity-70">
+              ___ That Inspires
+            </span>
+          </motion.h2>
 
+          <motion.div
+            className="flex flex-col items-center text-center md:text-left md:items-start"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7 }}
+          >
+            <motion.img
+              src={section2Img}
+              className="w-32 h-32 object-cover mb-4 rounded-md"
+              whileHover={{ scale: 1.04 }}
+            />
+            <p className="text-gray-700 text-base leading-relaxed max-w-sm">
+              Crafting visionary spaces with precision and artistry.
+            </p>
+          </motion.div>
+        </div>
+      </motion.section>
 
-      
-     {/* ========================== SECTION 2: INTRODUCTION ========================== */}
-<motion.section
-  className="w-full bg-[#f7f3ef] py-20 px-6 md:px-24"
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true }}
-  variants={sectionVariant}
->
-  <div className="flex flex-col md:flex-row justify-between items-center gap-12">
-    <motion.h2
-      className="text-4xl md:text-[88px] font-semibold leading-[1.1] text-black"
-      initial={{ opacity: 0, x: -30 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8 }}
-    >
-      Your True Home <br />
-      <span className="inline-block mt-2 text-lg md:text-5xl opacity-70">
-        ___ That Inspires
-      </span>
-    </motion.h2>
+      {/* ========================== SECTION 3: FEATURED PROJECT ========================== */}
+      <section className="relative w-full min-h-[80vh] md:min-h-[70vh]">
+        {/* VIDEO BACKGROUND */}
+        <div className="absolute inset-0 -z-10">
+          <video
+            className="w-full h-[80vh] md:h-screen  object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src={bgVideo} type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-black/30"></div>
+        </div>
 
-    <motion.div
-      className="flex flex-col items-center text-center md:text-left md:items-start"
-      initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.7 }}
-    >
-      <motion.img
-        src={section2Img}
-        className="w-32 h-32 object-cover mb-4 rounded-md"
-        whileHover={{ scale: 1.04 }}
-      />
-      <p className="text-gray-700 text-base leading-relaxed max-w-sm">
-        Crafting visionary spaces with precision and artistry.
-      </p>
-    </motion.div>
-  </div>
-</motion.section>
+        {/* Placeholder divs for desktop spacing */}
+        <div className="hidden md:flex w-full">
+          <div className="w-1/2 h-[650px] opacity-0" />
+          <div className="w-1/2 h-[650px] opacity-0" />
+        </div>
 
-{/* ========================== SECTION 3: FEATURED PROJECT ========================== */}
-<section className="relative w-full min-h-[80vh] md:min-h-[70vh]">
-
-  {/* VIDEO BACKGROUND */}
-  <div className="absolute inset-0 -z-10">
-    <video
-      className="w-full h-[80vh] md:h-screen  object-cover"
-      autoPlay
-      loop
-      muted
-      playsInline
-    >
-      <source src={bgVideo} type="video/mp4" />
-    </video>
-    <div className="absolute inset-0 bg-black/30"></div>
-  </div>
-
-  {/* Placeholder divs for desktop spacing */}
-  <div className="hidden md:flex w-full">
-    <div className="w-1/2 h-[650px] opacity-0" />
-    <div className="w-1/2 h-[650px] opacity-0" />
-  </div>
-
-  {/* FLOATING CARD */}
-  <motion.div
-    initial={{ opacity: 0, y: 60 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.9 }}
-    viewport={{ once: true }}
-    className="
+        {/* FLOATING CARD */}
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9 }}
+          viewport={{ once: true }}
+          className="
       absolute left-1/2 top-[30%]
       md:left-[28%] md:top-1/2 md:translate-y-[-55%]
       -translate-x-1/2
@@ -381,14 +379,16 @@ export default function Home() {
       w-[85%] sm:w-[350px] md:w-[320px]
       text-center md:text-left
     "
-  >
-    <h3 className="text-2xl font-semibold mb-3">Eco Retreats Villas</h3>
-    <p className="text-4xl font-semibold mb-3">2024</p>
-    <div className="border-t border-gray-300 my-4" />
-    <p className="text-xl font-medium mb-5">Luxury</p>
-    <a className="text-black underline font-medium text-lg">View Project →</a>
-  </motion.div>
-</section>
+        >
+          <h3 className="text-2xl font-semibold mb-3">Eco Retreats Villas</h3>
+          <p className="text-4xl font-semibold mb-3">2024</p>
+          <div className="border-t border-gray-300 my-4" />
+          <p className="text-xl font-medium mb-5">Luxury</p>
+          <a className="text-black underline font-medium text-lg">
+            View Project →
+          </a>
+        </motion.div>
+      </section>
 
       {/* ========================== Section 4 SERVICES SECTION ========================== */}
       <motion.section
@@ -435,24 +435,22 @@ export default function Home() {
                 →
               </motion.button>
             </div>
-<div className="flex flex-col md:flex-row items-start gap-6">
-  <div className="flex gap-4 mb-4 md:mb-0">
-    {active.thumbs.map((img, i) => (
-      <motion.img
-        key={i}
-        src={img}
-        className="w-24 h-24 md:w-28 md:h-28 object-cover shadow"
-        whileHover={{ scale: 1.06 }}
-        transition={{ duration: 0.35 }}
-      />
-    ))}
-  </div>
-  <p className="text-gray-800 text-base leading-relaxed max-w-60">
-    {active.description}
-  </p>
-</div>
-
-
+            <div className="flex flex-col md:flex-row items-start gap-6">
+              <div className="flex gap-4 mb-4 md:mb-0">
+                {active.thumbs.map((img, i) => (
+                  <motion.img
+                    key={i}
+                    src={img}
+                    className="w-24 h-24 md:w-28 md:h-28 object-cover shadow"
+                    whileHover={{ scale: 1.06 }}
+                    transition={{ duration: 0.35 }}
+                  />
+                ))}
+              </div>
+              <p className="text-gray-800 text-base leading-relaxed max-w-60">
+                {active.description}
+              </p>
+            </div>
           </motion.div>
 
           {/* Right side: Big image */}
@@ -490,7 +488,8 @@ export default function Home() {
           </p>
           <motion.button
             whileHover={{ scale: 1.03 }}
-            className="mt-6 bg-black text-white px-6 py-2 rounded-full flex items-center gap-3"
+            className="mt-6 bg-black text-white px-6 py-2 rounded-full flex items-center gap-3 cursor-pointer"
+            onClick={() => navigate("/service")}
           >
             Explore →
           </motion.button>
@@ -603,7 +602,8 @@ export default function Home() {
               },
               {
                 title: "Sustainable Design",
-                content: "We prioritize eco-friendly and sustainable solutions.",
+                content:
+                  "We prioritize eco-friendly and sustainable solutions.",
               },
               {
                 title: "Client-Centric Approach",
@@ -653,104 +653,96 @@ export default function Home() {
         </div>
       </motion.section>
 
-      
       <section className="w-full bg-[#F6F2EE] py-20 px-6 md:px-24">
-  {/* Tag */}
-  <span className="text-gray-600 text-sm font-medium flex items-center gap-2 mb-3">
-    <span className="w-2 h-2 bg-gray-600 rounded-full"></span>
-    Success Stories
-  </span>
+        {/* Tag */}
+        <span className="text-gray-600 text-sm font-medium flex items-center gap-2 mb-3">
+          <span className="w-2 h-2 bg-gray-600 rounded-full"></span>
+          Success Stories
+        </span>
 
-  {/* Heading */}
-  <h2 className="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-4 leading-tight">
-    We build work <br /> that lasts
-  </h2>
+        {/* Heading */}
+        <h2 className="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-4 leading-tight">
+          We build work <br /> that lasts
+        </h2>
 
-  {/* Subheading */}
-  <p className="text-gray-600 text-base mb-12">
-    We’ve partnered with brands <br className="hidden md:block" />
-    that share our values of creativity
-  </p>
+        {/* Subheading */}
+        <p className="text-gray-600 text-base mb-12">
+          We’ve partnered with brands <br className="hidden md:block" />
+          that share our values of creativity
+        </p>
 
-  {/* Review Grid (No carousel for screenshot-accurate layout) */}
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-    {/* Card 1 */}
-    <div className="bg-white rounded-2xl p-6 shadow-sm">
-      <div className="flex text-[#1A1A1A] text-lg mb-4 tracking-wider">
-        ★★★★★
-      </div>
-      <p className="text-gray-700 leading-relaxed mb-6">
-        We came in with a product — they gave us a story.
-        Their ability to translate design language into emotion
-        was exactly what we needed.
-      </p>
+        {/* Review Grid (No carousel for screenshot-accurate layout) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Card 1 */}
+          <div className="bg-white rounded-2xl p-6 shadow-sm">
+            <div className="flex text-[#1A1A1A] text-lg mb-4 tracking-wider">
+              ★★★★★
+            </div>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              We came in with a product — they gave us a story. Their ability to
+              translate design language into emotion was exactly what we needed.
+            </p>
 
-      <div className="flex items-center gap-3">
-        <img
-          src={reviewer1}
-          className="w-12 h-12 rounded-full object-cover"
-        />
-        <div>
-          <p className="font-semibold text-gray-900">Natalia Voss</p>
-          <p className="text-gray-500 text-sm">Varo Studio</p>
+            <div className="flex items-center gap-3">
+              <img
+                src={reviewer1}
+                className="w-12 h-12 rounded-full object-cover"
+              />
+              <div>
+                <p className="font-semibold text-gray-900">Natalia Voss</p>
+                <p className="text-gray-500 text-sm">Varo Studio</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="bg-white rounded-2xl p-6 shadow-sm">
+            <div className="flex text-[#1A1A1A] text-lg mb-4">★★★★★</div>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              They took our product and gave it a pulse. Every detail felt
+              intentional — from the visuals to the voice. It was like working
+              with a design partner, not just an agency.
+            </p>
+
+            <div className="flex items-center gap-3">
+              <img
+                src={reviewer2}
+                className="w-12 h-12 rounded-full object-cover"
+              />
+              <div>
+                <p className="font-semibold text-gray-900">Daniel Rohe</p>
+                <p className="text-gray-500 text-sm">AURIX Audio</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="bg-white rounded-2xl p-6 shadow-sm relative">
+            <div className="flex text-[#1A1A1A] text-lg mb-4">★★★★★</div>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              It felt like a creative partnership from day one. The team
+              translated our vision into something even more refined than we
+              imagined — bold, modern, and beautiful.
+            </p>
+
+            <div className="flex items-center gap-3">
+              <img
+                src={reviewer3}
+                className="w-12 h-12 rounded-full object-cover"
+              />
+              <div>
+                <p className="font-semibold text-gray-900">Isabelle Marek</p>
+                <p className="text-gray-500 text-sm">NOIR COSMETICS</p>
+              </div>
+            </div>
+
+            {/* Black arrow button inside card */}
+            <button className="absolute right-6 bottom-10 bg-[#1A1A1A] text-white w-10 h-10 rounded-full flex items-center justify-center text-xl hover:bg-black transition">
+              →
+            </button>
+          </div>
         </div>
-      </div>
-    </div>
-
-    {/* Card 2 */}
-    <div className="bg-white rounded-2xl p-6 shadow-sm">
-      <div className="flex text-[#1A1A1A] text-lg mb-4">
-        ★★★★★
-      </div>
-      <p className="text-gray-700 leading-relaxed mb-6">
-        They took our product and gave it a pulse. Every detail felt
-        intentional — from the visuals to the voice. It was like working
-        with a design partner, not just an agency.
-      </p>
-
-      <div className="flex items-center gap-3">
-        <img
-          src={reviewer2}
-          className="w-12 h-12 rounded-full object-cover"
-        />
-        <div>
-          <p className="font-semibold text-gray-900">Daniel Rohe</p>
-          <p className="text-gray-500 text-sm">AURIX Audio</p>
-        </div>
-      </div>
-    </div>
-
-    {/* Card 3 */}
-    <div className="bg-white rounded-2xl p-6 shadow-sm relative">
-      <div className="flex text-[#1A1A1A] text-lg mb-4">
-        ★★★★★
-      </div>
-      <p className="text-gray-700 leading-relaxed mb-6">
-        It felt like a creative partnership from day one.
-        The team translated our vision into something even more
-        refined than we imagined — bold, modern, and beautiful.
-      </p>
-
-      <div className="flex items-center gap-3">
-        <img
-          src={reviewer3}
-          className="w-12 h-12 rounded-full object-cover"
-        />
-        <div>
-          <p className="font-semibold text-gray-900">Isabelle Marek</p>
-          <p className="text-gray-500 text-sm">NOIR COSMETICS</p>
-        </div>
-      </div>
-
-      
-
-      {/* Black arrow button inside card */}
-      <button className="absolute right-6 bottom-10 bg-[#1A1A1A] text-white w-10 h-10 rounded-full flex items-center justify-center text-xl hover:bg-black transition">
-        →
-      </button>
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* ==========================Section 10 CALL TO ACTION ========================== */}
       <motion.section
@@ -779,20 +771,18 @@ export default function Home() {
           </div>
 
           {/* Right side: Button at bottom right */}
-          <a href="/contact#contact-form">
-  <motion.button
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.97 }}
-    className="font-mona bg-white text-black px-10 py-4 rounded-full text-lg shadow-sm hover:scale-[1.04] transition-all duration-300"
-  >
-    Start your project →
-  </motion.button>
-</a>
-
+          <Link to="/contact">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className="font-mona cursor-pointer bg-white text-black px-10 py-4 rounded-full text-lg shadow-sm hover:scale-[1.04] transition-all duration-300"
+            >
+              Start your project →
+            </motion.button>
+          </Link>
         </motion.div>
       </motion.section>
     </div>
   );
 }
 
-//////
